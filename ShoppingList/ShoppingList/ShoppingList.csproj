@@ -243,6 +243,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Images\shoppingcart.png" />
     <Content Include="Index.html" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1046,6 +1047,11 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\ScriptFolder\Routing.js" />
+    <Content Include="Scripts\ScriptFolder\shoppingListController.js" />
+    <Content Include="Scripts\ScriptFolder\shoppingListModule.js" />
+    <Content Include="Scripts\ScriptFolder\shoppingListService.js" />
+    <Content Include="Scripts\ScriptFolder\test.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

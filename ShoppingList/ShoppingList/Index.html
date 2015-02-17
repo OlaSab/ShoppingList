@@ -1,32 +1,39 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+  
     <head>
-        <link href="Content/bootstrap.min.css" rel="stylesheet" />
-        <script src="Scripts/angular.js"></script>
         <title>Shopping List</title>
-    </head>
+    </head> 
     
-    <body ng-app>
-        <header class="page-header">MY HEADER</header>
-        <div class="page-header">
-            <h1 class="">Shopping List</h1>
-        </div>
+    <body ng-app="shoppingListModule">
         
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th class="col-md-S">Shopping List</th><th class="col-md-2">Author</th>
-                </tr>
-            </thead>
+
+        <table ng-controller="shoppingListController" class="table table-condensed table-hover">
             <tr>
-                <td>Mat</td><td>Ola</td>
+                <th class="col-xs-8">Lists</th>
+                <th class="col-xs-2">Author</th>
+                <th class="col-xs-2"></th>
             </tr>
-            <tr>
-                <td>Clas Ohlson</td><td>Ola</td>
-            </tr>
-            <tr>
-                <td>Apotek</td><td>Ola</td>
+
+            <tr ng-repeat="list in shoppingLists">
+                <td>{{list.ShoppingListName}}</td>
+                <td>{{list.ShoppingListAuthor}}</td>
+                <td>
+                    <button ng-click="accept($index)">Remove</button>
+                    <p ng-show="showResult($index)"><strong>je suis ton amis</strong></p> 
+                    <p ng-show="showResult2()"><strong>you refuse me</strong></p>      
+                </td>
             </tr>
         </table>
+        <div align="left">
+            <form ng-controller="shoppingListController" name="newListForm" ng-submit="">
+                <button style="margin-left: 100px" disabled="{{newListForm.newListInput.$error.required}}">Add List</button>
+                <input name="newListInput" type="text" required placeholder="Enter name of new list." ng-model="newListName"/>
+            </form>
+        </div>
+        <br></br>
+        <br></br> 
+
+
     </body>
 </html>

@@ -9,13 +9,13 @@ namespace ShoppingList.Models
     {
         public int ShoppingListId { get; private set; }
         public string ShoppingListName { get; private set; }
-        public string Author { get; private set; }
+        public string ShoppingListAuthor { get; private set; }
 
-        public ShoppingList(int shoppingListId, string shoppingListName, string Author)
+        public ShoppingList(int shoppingListId, string shoppingListName, string ShoppingListAuthor)
         {
             ShoppingListId = shoppingListId;
             ShoppingListName = shoppingListName;
-            this.Author = Author;
+            this.ShoppingListAuthor = ShoppingListAuthor;
         }
     }
 }
