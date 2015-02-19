@@ -62,3 +62,5 @@ C:\_Privat\Git\ShoppingList\ShoppingList.Tests\bin\Debug\zh-Hant\System.Spatial.
 C:\_Privat\Git\ShoppingList\ShoppingList.Tests\obj\Debug\ShoppingList.Tests.csprojResolveAssemblyReference.cache
 C:\_Privat\Git\ShoppingList\ShoppingList.Tests\obj\Debug\ShoppingList.Tests.dll
 C:\_Privat\Git\ShoppingList\ShoppingList.Tests\obj\Debug\ShoppingList.Tests.pdb
+C:\_Privat\Git\ShoppingList\ShoppingList.Tests\bin\Debug\EntityFramework.dll
+C:\_Privat\Git\ShoppingList\ShoppingList.Tests\bin\Debug\EntityFramework.xml

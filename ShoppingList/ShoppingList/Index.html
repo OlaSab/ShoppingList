@@ -6,28 +6,35 @@
     </head> 
     
     <body ng-app="shoppingListModule">
-        
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-8">
+                    <table ng-controller="shoppingListController" class="table table-condensed table-hover">
+                        <tr>
+                            <th class="col-xs-8">Lists</th>
+                            <th class="col-xs-2">Author</th>
+                            <th class="col-xs-2"></th>
+                        </tr>
 
-        <table ng-controller="shoppingListController" class="table table-condensed table-hover">
-            <tr>
-                <th class="col-xs-8">Lists</th>
-                <th class="col-xs-2">Author</th>
-                <th class="col-xs-2"></th>
-            </tr>
-
-            <tr ng-repeat="list in shoppingLists">
-                <td>{{list.ShoppingListName}}</td>
-                <td>{{list.ShoppingListAuthor}}</td>
-                <td>
-                    <button ng-click="accept($index)">Remove</button>
-                    <p ng-show="showResult($index)"><strong>je suis ton amis</strong></p> 
-                    <p ng-show="showResult2()"><strong>you refuse me</strong></p>      
-                </td>
-            </tr>
-        </table>
+                        <tr ng-repeat="list in shoppingLists">
+                            <td>{{list.ShoppingListName}}</td>
+                            <td>{{list.ShoppingListAuthor}}</td>
+                            <td>
+                                <button class="btn-default btn-sm" ng-click="accept($index)">Remove</button>
+                                <p ng-show="showResult($index)"><strong>je suis ton amis</strong></p> 
+                                <p ng-show="showResult2()"><strong>you refuse me</strong></p>      
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md3"></div>
+            </div>    
+        </div>
         <div align="left">
-            <form ng-controller="shoppingListController" name="newListForm" ng-submit="">
-                <button style="margin-left: 100px" disabled="{{newListForm.newListInput.$error.required}}">Add List</button>
+            <form ng-controller="shoppingListController" name="newListForm" ng-submit="addList()">
+                <button class="btn-default btn-sm" ng-disabled="{{newListForm.newListInput.$error.required}}">Add List</button>
                 <input name="newListInput" type="text" required placeholder="Enter name of new list." ng-model="newListName"/>
             </form>
         </div>

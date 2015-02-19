@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShoppingListDBModelStoreContainer" CdmEntityContainer="ShoppingListDBEntities">
+    <EntitySetMapping Name="ShoppingLists">
+      <EntityTypeMapping TypeName="ShoppingListDBModel.ShoppingList">
+        <MappingFragment StoreEntitySet="ShoppingList">
+          <ScalarProperty Name="ShoppingListId" ColumnName="ShoppingListId" />
+          <ScalarProperty Name="ShoppingListName" ColumnName="ShoppingListName" />
+          <ScalarProperty Name="ShoppingListAuthor" ColumnName="ShoppingListAuthor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

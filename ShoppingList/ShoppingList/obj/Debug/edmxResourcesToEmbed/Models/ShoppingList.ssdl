@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingListDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ShoppingListDBModelStoreContainer">
+    <EntitySet Name="ShoppingList" EntityType="ShoppingListDBModel.Store.ShoppingList" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ShoppingList">
+    <Key>
+      <PropertyRef Name="ShoppingListId" />
+    </Key>
+    <Property Name="ShoppingListId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShoppingListName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ShoppingListAuthor" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+</Schema>

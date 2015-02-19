@@ -6,12 +6,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using Microsoft.Ajax.Utilities;
+using ShoppingList.Models;
 using ShoppingList = ShoppingList.Models.ShoppingList;
 
 namespace ShoppingList.Controllers
 {
     public class ShoppingListController : ApiController
     {
+        private ShoppingListDBEntities dbShoppingList = new ShoppingListDBEntities();
+
         private List<Models.ShoppingList> shoppingLists = new List<Models.ShoppingList>();
             //{
             //    new Models.ShoppingList(1, "Mat", "Ola");
@@ -21,26 +24,38 @@ namespace ShoppingList.Controllers
 
         public ShoppingListController()
         {
-            shoppingLists.Add(new Models.ShoppingList(1, "Mat", "Ola"));
-            shoppingLists.Add(new Models.ShoppingList(2, "Clas Ohlson", "Ola"));
-            shoppingLists.Add(new Models.ShoppingList(3, "Apotek", "Ola"));
+            //shoppingLists.Add(new Models.ShoppingList(1, "Mat", "Ola"));
+            //shoppingLists.Add(new Models.ShoppingList(2, "Clas Ohlson", "Ola"));
+            //shoppingLists.Add(new Models.ShoppingList(3, "Apotek", "Ola"));
         }
         // GET api/ShoppingListController
         public IEnumerable<Models.ShoppingList> Get()
         {
-            return shoppingLists;
+            var response =
+                dbShoppingList.ShoppingLists.ToArray().Select(
+                    x =>
+                        new Models.ShoppingList()
+                        {
+                            ShoppingListId = x.ShoppingListId,
+                            ShoppingListName = x.ShoppingListName,
+                            ShoppingListAuthor = x.ShoppingListAuthor
+                        });
+
+            return response;
         }
 
         // GET api/ShoppingListController/5
-        public Models.ShoppingList Get(int id)
-        {
-            return shoppingLists.SingleOrDefault(x => x.ShoppingListId == id);
-        }
+        //public Models.ShoppingList Get(int id)
+        //{
+            
+        //    //return shoppingLists.SingleOrDefault(x => x.ShoppingListId == id);
+        //}
 
-        // POST api/values
+        // POST api/    
         public void Post([FromBody]string value)
         {
-            shoppingLists.Add(new Models.ShoppingList(3, "Apotek", value));
+            //shoppingLists.Add(new Models.ShoppingList(3, "Apotek", value));
+            var hejhopp = 1;
         }
 
         // PUT api/values/5
