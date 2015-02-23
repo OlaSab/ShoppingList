@@ -54,8 +54,9 @@ namespace ShoppingList.Controllers
         // POST api/    
         public void Post([FromBody]string value)
         {
-            //shoppingLists.Add(new Models.ShoppingList(3, "Apotek", value));
-            var hejhopp = 1;
+
+            dbShoppingList.ShoppingLists.Add(new Models.ShoppingList(3, value, "Ola"));
+            dbShoppingList.SaveChanges();
         }
 
         // PUT api/values/5
