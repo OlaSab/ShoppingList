@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using Microsoft.Ajax.Utilities;
@@ -16,18 +17,11 @@ namespace ShoppingList.Controllers
         private ShoppingListDBEntities dbShoppingList = new ShoppingListDBEntities();
 
         private List<Models.ShoppingList> shoppingLists = new List<Models.ShoppingList>();
-            //{
-            //    new Models.ShoppingList(1, "Mat", "Ola");
-            //    new Models.ShoppingList(2, "Clas Ohlson", "Ola"),
-            //    new Models.ShoppingList(3, "Apotek", "Ola"),
-            //};
 
         public ShoppingListController()
         {
-            //shoppingLists.Add(new Models.ShoppingList(1, "Mat", "Ola"));
-            //shoppingLists.Add(new Models.ShoppingList(2, "Clas Ohlson", "Ola"));
-            //shoppingLists.Add(new Models.ShoppingList(3, "Apotek", "Ola"));
         }
+
         // GET api/ShoppingListController
         public IEnumerable<Models.ShoppingList> Get()
         {
@@ -52,10 +46,10 @@ namespace ShoppingList.Controllers
         //}
 
         // POST api/    
-        public void Post([FromBody]string value)
+        public void Post(ShoppingList shoppingList)
         {
 
-            dbShoppingList.ShoppingLists.Add(new Models.ShoppingList(3, value, "Ola"));
+            dbShoppingList.ShoppingLists.Add(new Models.ShoppingList(shoppingList.ShoppingListName, "Ola"));
             dbShoppingList.SaveChanges();
         }
 
@@ -67,6 +61,16 @@ namespace ShoppingList.Controllers
         // DELETE api/values/5
         public void Delete(int id)
         {
+            //var x = id;
+            //var y = x; ;
+            var shoppListDelete = dbShoppingList.ShoppingLists.SingleOrDefault(x => x.ShoppingListId == id);
+            dbShoppingList.ShoppingLists.Remove(shoppListDelete);
+            dbShoppingList.SaveChanges();
         }
+    }
+
+    public class ShoppingList
+    {
+        public string ShoppingListName;
     }
 }

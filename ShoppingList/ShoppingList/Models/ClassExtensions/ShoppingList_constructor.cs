@@ -7,9 +7,8 @@
             
         }
 
-        public ShoppingList(int shoppingListId, string shoppingListName, string shoppingListAuthor)
+        public ShoppingList(string shoppingListName, string shoppingListAuthor)
         {
-            this.ShoppingListId = shoppingListId;
             this.ShoppingListName = shoppingListName;
             this.ShoppingListAuthor = shoppingListAuthor;
         }

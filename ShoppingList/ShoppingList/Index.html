@@ -9,8 +9,8 @@
         <br/>
         <div class="container">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-8">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
                     <table ng-controller="shoppingListController" class="table table-condensed table-hover">
                         <tr>
                             <th class="col-xs-8">Lists</th>
@@ -19,25 +19,27 @@
                         </tr>
 
                         <tr ng-repeat="list in shoppingLists">
-                            <td>{{list.ShoppingListName}}</td>
+                            <td><a ng-href="ShoppingList/{{list.ShoppingListId}}">{{list.ShoppingListName}}</a></td>
                             <td>{{list.ShoppingListAuthor}}</td>
                             <td>
-                                <button class="btn-default btn-sm" ng-click="accept($index)">Remove</button>
-                                <p ng-show="showResult($index)"><strong>je suis ton amis</strong></p> 
-                                <p ng-show="showResult2()"><strong>you refuse me</strong></p>      
+                                <button class="btn-default btn-xs" ng-click="removeList(list.ShoppingListId)">Remove</button>
                             </td>
                         </tr>
                     </table>
                 </div>
-                <div class="col-md3"></div>
+                <div class="col-md-5"></div>
             </div>    
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <form ng-controller="shoppingListController" name="newListForm" >
+                        <button ng-click="addList(newListName)" class="btn-default btn-sm" ng-disabled="{{newListForm.newListInput.$error.required}}">Add List</button>
+                        <input name="newListInput" type="text" required placeholder="Enter name of new list." ng-model="newListName"/>
+                    </form>
+                 </div>
+            </div>
         </div>
-        <div align="left">
-            <form ng-controller="shoppingListController" name="newListForm" ng-submit="addList()">
-                <button class="btn-default btn-sm" ng-disabled="{{newListForm.newListInput.$error.required}}">Add List</button>
-                <input name="newListInput" type="text" required placeholder="Enter name of new list." ng-model="newListName"/>
-            </form>
-        </div>
+ 
         <br></br>
         <br></br> 
 
